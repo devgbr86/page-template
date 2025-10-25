@@ -3,9 +3,9 @@
 
 <head>
      <meta charset="UTF-8">
-     <link rel="icon" type="image/svg+xml" href="./img/code-fav.svg">
+     <link rel="icon" type="image/svg+xml" href="./img/favicon01.svg">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Profile/Personal Template</title>
+     <title>@devcaffe</title>
 
      <!-- CSS embutido -->
      <style>
@@ -17,14 +17,16 @@
           }
 
           body {
-               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+               font-family: 'Courier New', Courier, monospace;
                background: whitesmoke;
                color: black;
-               line-height: 1.6;
+               line-height: 1.7;
+               font-size: 18px;
           }
 
           a {
                color: green;
+               text-decoration: none;
           }
 
           /* Navbar fixa */
@@ -34,19 +36,18 @@
                left: 0;
                width: 100%;
                background: black;
-               padding: 0.5rem 1rem;
+               padding: 0.6rem 1rem;
                display: flex;
                align-items: center;
                justify-content: flex-start;
                z-index: 1000;
-               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+               box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
           }
 
           header nav .logo img {
-               width: 75px;
-               height: 75px;
+               width: 80px;
+               height: 80px;
                border-radius: 50%;
-               background-color: orange;
           }
 
           header nav a.logo {
@@ -55,46 +56,38 @@
 
           /* Espaço do topo para o conteúdo não ficar por baixo da navbar */
           header {
-               height: 90px;
+               height: 100px;
           }
 
           main {
                max-width: 800px;
-               margin: 2rem auto;
+               margin: 2.5rem auto;
                padding: 0 1rem;
           }
 
           .content {
                background: white;
-               padding: 2.5rem;
-               border-radius: 12px;
-               box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+               padding: 3rem;
+               border-radius: 14px;
+               box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
           }
 
           /* Markdown melhor formatado */
           .content h1,
           .content h2,
           .content h3 {
-               margin-bottom: 1rem;
+               margin-bottom: 1.2rem;
                color: darkblue;
+               line-height: 1.3;
           }
 
           .content p {
-               margin-bottom: 1rem;
+               margin-bottom: 1.2rem;
           }
 
           .content ul,
           .content ol {
-               margin: 1rem 0 1rem 1.5rem;
-          }
-
-          .content a {
-               color: green;
-               text-decoration: none;
-          }
-
-          .content a:hover {
-               text-decoration: underline;
+               margin: 1rem 0 1rem 2rem;
           }
 
           .content blockquote {
@@ -103,32 +96,71 @@
                color: #555;
                margin: 1rem 0;
                font-style: italic;
+               background: #f3f3f3;
+               border-radius: 4px;
+          }
+
+          /* Contatos */
+          .contact-info {
+               margin-top: 1.5rem;
+          }
+
+          .contact-item {
+               margin-bottom: 0.7rem;
+          }
+
+          .contact-label {
+               font-weight: bold;
+               margin-right: 0.4rem;
+          }
+
+          /* Tech badges */
+          .tech-skills {
+               margin-top: 1.5rem;
+          }
+
+          .tech-badge {
+               display: inline-block;
+               background-color: darkblue;
+               color: white;
+               padding: 0.35rem 0.8rem;
+               border-radius: 8px;
+               margin: 0.25rem 0.25rem 0.25rem 0;
+               font-size: 0.9rem;
           }
 
           footer {
                text-align: center;
                padding: 1rem;
                color: #666;
-               font-size: 0.9rem;
+               font-size: 0.95rem;
           }
 
           footer a {
+               color: green;
                text-decoration: none;
           }
 
           /* Responsividade */
           @media (max-width: 600px) {
                header nav .logo img {
-                    width: 50px;
-                    height: 50px;
+                    width: 60px;
+                    height: 60px;
                }
 
                main {
-                    margin: 1rem;
+                    margin: 1.5rem;
+                    max-width: 100%;
+                    /* ocupa toda a largura da tela */
                }
 
                .content {
-                    padding: 1.5rem;
+                    padding: 2rem;
+               }
+
+               .tech-badge {
+                    font-size: 0.8rem;
+                    padding: 0.3rem 0.6rem;
                }
           }
      </style>
@@ -139,7 +171,7 @@
      <header>
           <nav>
                <a href="index.html" class="logo">
-                    <img src="./img/logo-profile.png" alt="Logo">
+                    <img src="./img/goat.png" alt="Logo">
                </a>
           </nav>
      </header>
@@ -152,7 +184,7 @@
      </main>
 
      <footer>
-          &copy; 2025 Profile/Personal Template
+          @devcaffe
           <br>
           <a href="https://github.com/devgbr86/">github.com/devgbr86</a>
      </footer>
@@ -160,7 +192,6 @@
      <!-- Marked.js via CDN -->
      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
      <script>
-          // Função para carregar o Markdown do arquivo about.md
           async function loadMarkdown() {
                try {
                     const response = await fetch('about.md');
