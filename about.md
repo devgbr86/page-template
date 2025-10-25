@@ -10,6 +10,6 @@ Esta é uma **land page minimalista** usando **Markdown** para o conteúdo princ
 
 ## Sobre
 
-Você só precisa editar o arquivo `about.md` para alterar o conteúdo.
+Você só precisa editar o arquivo `about.md` para alterar o conteúdo.       
 
-[Saiba mais](#)
+topverbs@gmail.com
