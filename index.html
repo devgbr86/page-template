@@ -1,481 +1,173 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-     <meta charset="UTF-8" />
-     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-     <meta name="viewport" content="width=device-width, initial-scale=1" />
-     <title>@devcaffe - Central de Recursos</title>
-     <meta name="description"
-          content="@devcaffe: Central de tutoriais, referências e links oficiais sobre Java. Explore documentação, ferramentas, cursos e projetos Java.">
-     <meta name="author" content="@devcaffe">
-     <meta name="robots" content="index, follow">
-     <meta name="theme-color" content="#000000">
-     <link rel="icon" type="image/svg+xml" href="./img/code-fav.svg" />
+     <meta charset="UTF-8">
+     <link rel="icon" type="image/svg+xml" href="./img/code-fav.svg">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Profile/Personal Template</title>
 
+     <!-- CSS embutido -->
      <style>
-          /* ===== GLOBAL ===== */
+          /* Reset básico */
           * {
                box-sizing: border-box;
                margin: 0;
                padding: 0;
           }
 
-          html {
-               scroll-behavior: smooth;
-          }
-
           body {
-               margin: 0;
-               padding-top: 50px;
-               padding-bottom: 25px;
-               background: #000;
-               font-family: 'Courier New', monospace;
-               color: whitesmoke;
-               font-size: 20px;
+               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+               background: #f8f9fa;
+               color: #333;
                line-height: 1.6;
-               overflow-x: hidden;
           }
 
-          body::before {
-               content: '';
-               position: fixed;
-               inset: 0;
-               background: radial-gradient(ellipse at top, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
-                    radial-gradient(ellipse at bottom, rgba(50, 205, 50, 0.08) 0%, transparent 50%);
-               z-index: 0;
-               pointer-events: none;
-          }
-
-          a {
-               color: greenyellow;
-               text-decoration: none;
-               word-break: break-word;
-               transition: all 0.3s ease;
-          }
-
-          a:hover,
-          a:focus-visible {
-               text-shadow: 0 0 10px rgba(173, 255, 47, 0.5);
-               outline: none;
-          }
-
-          a:focus-visible {
-               outline: 2px solid greenyellow;
-               outline-offset: 4px;
-               border-radius: 4px;
-          }
-
-          main {
-               width: 900px;
-               max-width: 85%;
-               margin: auto;
-               display: flex;
-               flex-direction: column;
-               gap: 2rem;
-               z-index: 1;
-               position: relative;
-          }
-
-          /* ===== NAVBAR ===== */
-          #navbar {
+          /* Navbar fixa */
+          header nav {
                position: fixed;
                top: 0;
                left: 0;
                width: 100%;
-               height: 50px;
+               background: #007BFF;
+               padding: 0.5rem 1rem;
                display: flex;
-               justify-content: center;
                align-items: center;
-               background: rgba(0, 0, 0, 0.95);
-               border-bottom: 1px solid rgba(255, 165, 0, 0.2);
-               backdrop-filter: blur(10px);
-               box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+               justify-content: flex-start;
                z-index: 1000;
+               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
           }
 
-          #navbar a {
-               margin: 0 0.5rem;
-               padding: 0.25rem 0.75rem;
-               border-radius: 4px;
-               transition: background 0.3s ease, transform 0.2s ease;
-               font-weight: 500;
-          }
-
-          #navbar a:hover,
-          #navbar a:focus-visible {
-               background: rgba(173, 255, 47, 0.1);
-               transform: scale(1.05);
-          }
-
-          /* ===== LOGO ===== */
-          .logotype {
-               text-align: center;
-               padding: 2rem 0 1rem;
-          }
-
-          .logotype a {
-               display: inline-block;
-               transition: transform 0.3s ease;
-          }
-
-          .logotype a:focus-visible {
-               outline: 2px solid greenyellow;
-               outline-offset: 8px;
+          header nav .logo img {
+               width: 75px;
+               height: 75px;
                border-radius: 50%;
-          }
-
-          .logotype img {
-               width: 90px;
-               height: 90px;
-               border-radius: 50%;
-               background: linear-gradient(135deg, #ff4dd2, #00b3ff);
-               box-shadow: 0 8px 24px rgba(138, 43, 226, 0.3);
-               transition: transform 0.3s ease, box-shadow 0.3s ease;
-               display: block;
-               margin: 0 auto;
-          }
-
-          .logotype a:hover img {
-               transform: scale(1.1) rotate(5deg);
-               box-shadow: 0 12px 32px rgba(138, 43, 226, 0.5);
-          }
-
-          .logotype div {
-               margin-top: 1rem;
-               font-size: 1.2rem;
-               font-weight: 600;
-               text-align: center;
-          }
-
-          .hero-title {
-               text-align: center;
-               font-size: clamp(2rem, 6vw, 3.2rem);
-               font-weight: 800;
-               line-height: 1.1;
-               margin-bottom: 1.5rem;
-          }
-
-          .gradient-text {
-               background: linear-gradient(135deg, #ff4dd2, #00b3ff);
-               -webkit-background-clip: text;
-               -webkit-text-fill-color: transparent;
-               background-clip: text;
-               display: inline-block;
-               background-size: 200% 200%;
-               animation: gradient-shift 6s ease infinite;
-          }
-
-          @keyframes gradient-shift {
-
-               0%,
-               100% {
-                    background-position: 0% 50%;
-               }
-
-               50% {
-                    background-position: 100% 50%;
-               }
-          }
-
-          /* ===== MODULES ===== */
-          .module {
-               background: rgba(255, 255, 255, 0.03);
-               border: 1px solid rgba(255, 140, 0, 0.25);
-               border-radius: 12px;
-               padding: 1.75rem;
-               backdrop-filter: blur(10px);
-               transition: all 0.3s ease;
-          }
-
-          .module:hover {
-               background: rgba(255, 255, 255, 0.05);
-               transform: translateY(-2px);
-               box-shadow: 0 8px 24px rgba(255, 140, 0, 0.15);
-          }
-
-          .module h2 {
-               font-size: 22px;
-               margin-top: 0;
-               margin-bottom: 1rem;
-               color: lightblue;
-          }
-
-          .module h2:not(:first-child) {
-               margin-top: 2rem;
-          }
-
-          .module p {
-               margin-bottom: 1rem;
-          }
-
-          .module p:last-of-type {
-               margin-bottom: 0;
-          }
-
-          #intro {
-               background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(50, 205, 50, 0.1));
-               border: 1px solid rgba(255, 140, 0, 0.3);
-          }
-
-          #intro p {
-               margin-bottom: 1.5rem;
-          }
-
-          .btn-container {
-               text-align: center;
-               margin: 1.5rem 0;
-          }
-
-          .btn {
                background-color: greenyellow;
-               color: black;
-               font-size: 22px;
-               font-weight: 615;
-               padding: 18px 40px;
-               text-transform: uppercase;
-               border-radius: 8px;
-               display: inline-block;
-               text-align: center;
+          }
+
+          header nav a.logo {
                text-decoration: none;
-               transition: all 0.3s ease;
-               box-shadow: 0 4px 12px rgba(173, 255, 47, 0.3);
-               cursor: pointer;
-               border: none;
           }
 
-          .btn:hover,
-          .btn:focus-visible {
-               background-color: #c0ff00;
-               transform: translateY(-2px);
-               box-shadow: 0 6px 20px rgba(173, 255, 47, 0.5);
-               text-shadow: none;
+          /* Espaço do topo para o conteúdo não ficar por baixo da navbar */
+          header {
+               height: 90px;
           }
 
-          .btn:active {
-               transform: translateY(0);
-               box-shadow: 0 2px 8px rgba(173, 255, 47, 0.3);
+          main {
+               max-width: 800px;
+               margin: 2rem auto;
+               padding: 0 1rem;
           }
 
-          /* ===== LINKS DAS SEÇÕES ===== */
-          #contato a,
-          #projetos a {
-               display: block;
-               margin: 0.5rem 0;
-               padding: 0.75rem 1.25rem;
-               border: 1px solid rgba(173, 255, 47, 0.2);
-               border-radius: 8px;
-               color: greenyellow;
-               overflow-wrap: anywhere;
-               word-break: break-word;
-               white-space: normal;
-               text-align: center;
-               transition: all 0.3s ease;
+          .content {
+               background: white;
+               padding: 2.5rem;
+               border-radius: 12px;
+               box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
           }
 
-          #contato a:hover,
-          #contato a:focus-visible,
-          #projetos a:hover,
-          #projetos a:focus-visible {
-               background: rgba(173, 255, 47, 0.1);
-               border-color: rgba(173, 255, 47, 0.4);
-               transform: translateX(4px);
+          /* Markdown melhor formatado */
+          .content h1,
+          .content h2,
+          .content h3 {
+               margin-bottom: 1rem;
+               color: #007BFF;
           }
 
-          /* ===== FOOTER ===== */
+          .content p {
+               margin-bottom: 1rem;
+          }
+
+          .content ul,
+          .content ol {
+               margin: 1rem 0 1rem 1.5rem;
+          }
+
+          .content a {
+               color: #007BFF;
+               text-decoration: none;
+          }
+
+          .content a:hover {
+               text-decoration: underline;
+          }
+
+          .content blockquote {
+               border-left: 4px solid #007BFF;
+               padding-left: 1rem;
+               color: #555;
+               margin: 1rem 0;
+               font-style: italic;
+          }
+
           footer {
-               width: 900px;
-               max-width: 85%;
-               margin: auto;
-               border-top: 1px solid rgba(255, 140, 0, 0.2);
-               padding: 3rem 0;
+               text-align: center;
+               padding: 1rem;
+               color: #666;
+               font-size: 0.9rem;
           }
 
-          /* ===== RESPONSIVIDADE ===== */
-          @media (max-width: 768px) {
-               body {
-                    font-size: 18px;
+          /* Responsividade */
+          @media (max-width: 600px) {
+               header nav .logo img {
+                    width: 50px;
+                    height: 50px;
                }
 
-               .hero-title {
-                    font-size: clamp(1.8rem, 8vw, 2.8rem);
+               main {
+                    margin: 1rem;
                }
 
-               .module {
+               .content {
                     padding: 1.5rem;
                }
-
-               .btn {
-                    font-size: 20px;
-                    padding: 16px 35px;
-               }
-
-               #navbar a {
-                    font-size: 16px;
-                    padding: 0.2rem 0.5rem;
-               }
-          }
-
-          @media (max-width: 480px) {
-               body {
-                    font-size: 16px;
-                    padding-top: 50px;
-               }
-
-               main,
-               footer {
-                    max-width: 90%;
-               }
-
-               .logotype img {
-                    width: 75px;
-                    height: 75px;
-               }
-
-               .module {
-                    padding: 1.25rem;
-               }
-
-               .module h2 {
-                    font-size: 20px;
-               }
-
-               .btn {
-                    font-size: 18px;
-                    padding: 14px 30px;
-                    width: 100%;
-               }
-
-               #navbar {
-                    font-size: 14px;
-               }
-
-               #contato a,
-               #projetos a {
-                    padding: 0.6rem 1rem;
-                    font-size: 16px;
-               }
-          }
-
-          /* ===== ACESSIBILIDADE ===== */
-          @media (prefers-reduced-motion: reduce) {
-
-               *,
-               *::before,
-               *::after {
-                    animation-duration: 0.01ms !important;
-                    animation-iteration-count: 1 !important;
-                    transition-duration: 0.01ms !important;
-                    scroll-behavior: auto !important;
-               }
-          }
-
-          /* ===== PERFORMANCE - Animação suave apenas quando visível ===== */
-          @media (prefers-reduced-motion: no-preference) {
-               .module {
-                    animation: fadeIn 0.6s ease-out;
-               }
-          }
-
-          @keyframes fadeIn {
-               from {
-                    opacity: 0;
-                    transform: translateY(20px);
-               }
-
-               to {
-                    opacity: 1;
-                    transform: translateY(0);
-               }
-          }
-
-          /* ===== LOADING OPTIMIZATION ===== */
-          img {
-               display: block;
-          }
-
-          /* Skip to content para acessibilidade */
-          .skip-to-content {
-               position: absolute;
-               top: -40px;
-               left: 0;
-               background: greenyellow;
-               color: black;
-               padding: 8px;
-               text-decoration: none;
-               z-index: 2000;
-               font-weight: bold;
-          }
-
-          .skip-to-content:focus {
-               top: 0;
           }
      </style>
 </head>
 
 <body>
 
-     <nav id="navbar" role="navigation" aria-label="Navegação principal">
-          |
-          <a href="#contato" aria-label="Ir para Contato">Contato</a>
-          |
-     </nav>
-
-     <main id="main-content">
-          <div class="logotype">
-               <a href="index.html" aria-label="Página inicial do @devcaffe">
-                    <img alt="Logo do @devcaffe com gradiente vibrante" src="./img/logo-profile.png" loading="lazy"
-                         width="90" height="90">
+     <header>
+          <nav>
+               <a href="index.html" class="logo">
+                    <img src="./img/logo-profile.png" alt="Logo">
                </a>
-               <div>@devcaffe</div>
+          </nav>
+     </header>
+
+     <main>
+          <div class="content" id="markdown-content">
+               <!-- Conteúdo Markdown será carregado aqui -->
+               Carregando conteúdo...
           </div>
-
-          <h1 class="hero-title">
-               <span class="gradient-text">Tutoriais para programadores e desenvolvedores</span>
-          </h1>
-
-          <section class="module" id="intro" aria-labelledby="intro-heading">
-               <h2 id="intro-heading"
-                    style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;">
-                    Introdução</h2>
-               <p>
-                    Meu nome é Guilherme Ribeiro.
-                    <br>
-                    Publico conteúdo exclusivo para programadores e desenvolvedores: Jekyll, Mapas de JavaScript,
-                    Fundamentos de Java e POO, Estruturas de Dados avançadas, Projetos frontend/backend,
-                    Git,
-                    DevOps e práticas essenciais. Inscreva-se na Newsletter para receber tutoriais
-                    completos.
-               </p>
-          </section>
-
-          <section id="projetos" class="module" aria-labelledby="projetos-heading">
-               <h2 id="projetos-heading">Códigos e Projetos</h2>
-               <a href="https://devcaffe.substack.com" target="_blank" rel="noopener noreferrer"
-                    aria-label="Inscreva-se na newsletter do @devcaffe">
-                    Inscreva-se: Newsletter
-               </a>
-               <a href="https://github.com/devgbr86/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Visite o perfil do @devcaffe no GitHub">GitHub Profile</a>
-               <a href="https://devgbr86.github.io/md-editor/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Acesse o Markdown Editor online">Markdown Editor</a>
-               <a href="https://devgbr86.github.io/img-converter/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Conversor de imagens PNG, JPG e WEBP">
-                    PNG/JPG/WEBP Converter</a>
-               <a href="https://devgbr86.github.io/jekyll-page/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Jekyll template">Jekyll template</a>
-          </section>
      </main>
 
      <footer>
-          <section id="contato" class="module" aria-labelledby="contato-heading">
-               <h2 id="contato-heading">Contato</h2>
-               <a href="https://www.linkedin.com/in/devgbr/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Conecte-se com @devcaffe no LinkedIn">LinkedIn</a>
-               <a href="mailto:topverbs@gmail.com"
-                    aria-label="Envie um email para topverbs@gmail.com">topverbs@gmail.com</a>
-          </section>
+          &copy; 2025 Profile/Personal Template
+          <br>
+          <a href="https://github.com/devgbr86/">github.com/devgbr86</a>
      </footer>
+
+     <!-- Marked.js via CDN -->
+     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+     <script>
+          // Função para carregar o Markdown do arquivo about.md
+          async function loadMarkdown() {
+               try {
+                    const response = await fetch('about.md');
+                    if (!response.ok) throw new Error('Erro ao carregar about.md');
+                    const markdownText = await response.text();
+                    document.getElementById('markdown-content').innerHTML = marked.parse(markdownText);
+               } catch (err) {
+                    document.getElementById('markdown-content').innerHTML = `<p>Erro ao carregar conteúdo.</p>`;
+                    console.error(err);
+               }
+          }
+
+          loadMarkdown();
+     </script>
+
 </body>
 
 </html>
