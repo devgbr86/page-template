@@ -1,212 +1,266 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+<!-- 
+  Template para sites pessoais, landing pages e portfólios
+  
+  Estrutura:
+  * index.html contém o esqueleto principal com navbar fixa no topo
+  * O conteúdo é editado através do arquivo content.md (Markdown)
+  * Links da navbar são gerados automaticamente a partir dos headings H1
+  * Design minimalista com cores sóbrias: whitesmoke, white, black, blue
+-->
 
 <head>
      <meta charset="UTF-8">
-     <link rel="icon" type="image/svg+xml" href="./img/favicon01.svg">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>@devcaffe</title>
-
-     <!-- CSS embutido -->
+     <title>Minha Landing Page</title>
+     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
      <style>
-          /* Reset básico */
+          /* ===== Reset e Geral ===== */
           * {
-               box-sizing: border-box;
                margin: 0;
                padding: 0;
+               box-sizing: border-box;
           }
 
           body {
-               font-family: 'Courier New', Courier, monospace;
-               background: whitesmoke;
+               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+               background-color: whitesmoke;
                color: black;
-               line-height: 1.7;
-               font-size: 18px;
+               line-height: 1.6;
           }
 
           a {
-               color: green;
+               color: blue;
                text-decoration: none;
+               transition: opacity 0.2s ease;
           }
 
-          /* Navbar fixa */
-          header nav {
+          /* ===== Navbar ===== */
+          .navbar {
                position: fixed;
                top: 0;
                left: 0;
                width: 100%;
-               background: black;
-               padding: 0.6rem 1rem;
+               background-color: black;
+               color: white;
                display: flex;
                align-items: center;
-               justify-content: flex-start;
+               padding: 15px 30px;
+               box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
                z-index: 1000;
-               box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
           }
 
-          header nav .logo img {
-               width: 80px;
-               height: 80px;
-               border-radius: 50%;
+          .navbar a {
+               color: white;
+               margin-right: 25px;
+               font-weight: 600;
+               font-size: 15px;
+               letter-spacing: 0.3px;
           }
 
-          header nav a.logo {
-               text-decoration: none;
+          .navbar a:last-child {
+               margin-right: 0;
           }
 
-          /* Espaço do topo para o conteúdo não ficar por baixo da navbar */
-          header {
-               height: 100px;
-          }
-
-          main {
-               max-width: 800px;
-               margin: 2.5rem auto;
-               padding: 0 1rem;
-          }
-
+          /* ===== Conteúdo ===== */
           .content {
-               background: white;
-               padding: 3rem;
-               border-radius: 14px;
-               box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+               max-width: 800px;
+               margin: 90px auto 50px auto;
+               padding: 40px;
+               background-color: white;
+               border-radius: 8px;
+               box-shadow: 0 2px 15px rgba(0, 0, 0, 0.12);
           }
 
-          /* Markdown melhor formatado */
-          .content h1,
-          .content h2,
+          /* ===== Tipografia ===== */
+          .content h1 {
+               font-size: 2.2em;
+               margin-bottom: 20px;
+               padding-bottom: 15px;
+               border-bottom: 2px solid whitesmoke;
+               scroll-margin-top: 90px;
+          }
+
+          .content h2 {
+               font-size: 1.7em;
+               margin-top: 30px;
+               margin-bottom: 15px;
+               scroll-margin-top: 90px;
+          }
+
           .content h3 {
-               margin-bottom: 1.2rem;
-               color: darkblue;
-               line-height: 1.3;
+               font-size: 1.4em;
+               margin-top: 25px;
+               margin-bottom: 12px;
+               scroll-margin-top: 90px;
+          }
+
+          .content h4,
+          .content h5,
+          .content h6 {
+               margin-top: 20px;
+               margin-bottom: 10px;
+               scroll-margin-top: 90px;
           }
 
           .content p {
-               margin-bottom: 1.2rem;
+               margin-bottom: 15px;
           }
 
           .content ul,
           .content ol {
-               margin: 1rem 0 1rem 2rem;
+               margin-left: 25px;
+               margin-bottom: 15px;
+          }
+
+          .content li {
+               margin-bottom: 8px;
+          }
+
+          .content code {
+               background-color: whitesmoke;
+               padding: 2px 6px;
+               border-radius: 3px;
+               font-family: 'Courier New', monospace;
+               font-size: 0.9em;
+          }
+
+          .content pre {
+               background-color: whitesmoke;
+               padding: 15px;
+               border-radius: 5px;
+               overflow-x: auto;
+               margin-bottom: 15px;
+               border-left: 3px solid black;
+          }
+
+          .content pre code {
+               background-color: transparent;
+               padding: 0;
           }
 
           .content blockquote {
-               border-left: 4px solid darkblue;
-               padding-left: 1rem;
-               color: #555;
-               margin: 1rem 0;
+               border-left: 4px solid black;
+               padding-left: 20px;
+               margin: 20px 0;
+               color: #333;
                font-style: italic;
-               background: #f3f3f3;
-               border-radius: 4px;
           }
 
-          /* Contatos */
-          .contact-info {
-               margin-top: 1.5rem;
+          .content img {
+               max-width: 100%;
+               height: auto;
+               border-radius: 5px;
+               margin: 20px 0;
+               box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
           }
 
-          .contact-item {
-               margin-bottom: 0.7rem;
-          }
-
-          .contact-label {
-               font-weight: bold;
-               margin-right: 0.4rem;
-          }
-
-          /* Tech badges */
-          .tech-skills {
-               margin-top: 1.5rem;
-          }
-
-          .tech-badge {
-               display: inline-block;
-               background-color: darkblue;
-               color: white;
-               padding: 0.35rem 0.8rem;
-               border-radius: 8px;
-               margin: 0.25rem 0.25rem 0.25rem 0;
-               font-size: 0.9rem;
-          }
-
+          /* ===== Footer ===== */
           footer {
                text-align: center;
-               padding: 1rem;
-               color: #666;
-               font-size: 0.95rem;
+               color: black;
+               padding: 30px 20px;
+               font-size: 14px;
           }
 
-          footer a {
-               color: green;
-               text-decoration: none;
-          }
-
-          /* Responsividade */
-          @media (max-width: 600px) {
-               header nav .logo img {
-                    width: 60px;
-                    height: 60px;
+          /* ===== Responsivo ===== */
+          @media (max-width: 768px) {
+               .navbar {
+                    padding: 12px 20px;
+                    flex-wrap: wrap;
                }
 
-               main {
-                    margin: 1.5rem;
-                    max-width: 100%;
-                    /* ocupa toda a largura da tela */
+               .navbar a {
+                    margin-right: 15px;
+                    margin-bottom: 5px;
+                    font-size: 14px;
                }
 
                .content {
-                    padding: 2rem;
+                    margin: 80px 20px 40px 20px;
+                    padding: 25px;
                }
 
-               .tech-badge {
-                    font-size: 0.8rem;
-                    padding: 0.3rem 0.6rem;
+               .content h1 {
+                    font-size: 1.8em;
+               }
+
+               .content h2 {
+                    font-size: 1.5em;
                }
           }
      </style>
 </head>
 
 <body>
+     <!-- Navbar -->
+     <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
+          <!-- Links serão injetados aqui via JavaScript -->
+     </nav>
 
-     <header>
-          <nav>
-               <a href="index.html" class="logo">
-                    <img src="./img/goat.png" alt="Logo">
-               </a>
-          </nav>
-     </header>
-
-     <main>
-          <div class="content" id="markdown-content">
-               <!-- Conteúdo Markdown será carregado aqui -->
-               Carregando conteúdo...
-          </div>
+     <!-- Conteúdo Principal -->
+     <main class="content" id="content">
+          <!-- Conteúdo do Markdown será injetado aqui -->
      </main>
 
+     <!-- Rodapé -->
      <footer>
-          @devcaffe
-          <br>
-          <a href="https://github.com/devgbr86/">github.com/devgbr86</a>
+          <a href="https://github.com/devgbr86" target="_blank" rel="noopener noreferrer">github.com/devgbr86</a>
      </footer>
 
-     <!-- Marked.js via CDN -->
-     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
      <script>
+          // Carrega e processa o arquivo Markdown
           async function loadMarkdown() {
                try {
-                    const response = await fetch('about.md');
-                    if (!response.ok) throw new Error('Erro ao carregar about.md');
-                    const markdownText = await response.text();
-                    document.getElementById('markdown-content').innerHTML = marked.parse(markdownText);
-               } catch (err) {
-                    document.getElementById('markdown-content').innerHTML = `<p>Erro ao carregar conteúdo.</p>`;
-                    console.error(err);
+                    const response = await fetch('content.md');
+
+                    if (!response.ok) {
+                         throw new Error('Erro ao carregar content.md');
+                    }
+
+                    const md = await response.text();
+                    const html = marked.parse(md);
+                    document.getElementById('content').innerHTML = html;
+
+                    // Gera links da navbar automaticamente para todos os H1
+                    generateNavbar();
+               } catch (error) {
+                    console.error('Erro:', error);
+                    document.getElementById('content').innerHTML =
+                         '<p>Erro ao carregar o conteúdo. Verifique se o arquivo content.md existe.</p>';
                }
           }
 
-          loadMarkdown();
-     </script>
+          // Gera navegação baseada nos headings H1
+          function generateNavbar() {
+               const headings = document.querySelectorAll('.content h1');
+               const navbar = document.getElementById('navbar');
+               navbar.innerHTML = ''; // Limpa navbar
 
+               headings.forEach(heading => {
+                    // Gera ID se não existir
+                    if (!heading.id) {
+                         heading.id = heading.textContent
+                              .trim()
+                              .toLowerCase()
+                              .normalize('NFD')
+                              .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+                              .replace(/\s+/g, '-')
+                              .replace(/[^\w-]/g, '');
+                    }
+
+                    // Cria link de navegação
+                    const link = document.createElement('a');
+                    link.href = `#${heading.id}`;
+                    link.textContent = heading.textContent;
+                    navbar.appendChild(link);
+               });
+          }
+
+          // Inicializa ao carregar a página
+          document.addEventListener('DOMContentLoaded', loadMarkdown);
+     </script>
 </body>
 
 </html>
